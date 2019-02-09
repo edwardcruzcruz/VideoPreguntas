@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages/welcome');
-});
+Route::get('/', 'Controller@principal');
+Route::get('/video', 'Controller@presentacion');

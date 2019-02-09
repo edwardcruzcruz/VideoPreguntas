@@ -10,4 +10,10 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function principal(){
+	return view('pages/welcome');
+    }
+    public function presentacion(){
+	return view('pages/presentacion');
+    }
 }

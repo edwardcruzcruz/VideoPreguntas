@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="links">
-                    <a class="test" href="##">Ver video</a>
+                    <a class="test" href="{{URL::to('video')}}">Ver video</a>
                 </div>
             </div>
         </div>
