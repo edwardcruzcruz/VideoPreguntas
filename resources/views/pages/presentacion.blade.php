@@ -9,7 +9,7 @@
 
 <h1 align="center">Video 1</h1>
 <div class="Video">
-    <video id="video" width="1000" height="500" >
+    <video autoplay="" id="video" width="1000" height="500" >
         <source src="{{asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')}}" type="video/mp4" >
     </video>
 </div>

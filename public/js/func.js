@@ -1,14 +1,15 @@
 $(document).ready(function(){
     var vid = document.getElementById("video");
     var count;
+    
+    vid.addEventListener("timeupdate", function(){
+	window.count=vid.currentTime;  //To declare JavaScript global variables inside function, you need to use window object.  
+    });
+
     $('.playVid').on('click', function(e) {
         $.ajax({
             success:function(data){
-                vid.play();		
-		vid.addEventListener("timeupdate", function(){
-		    count=vid.currentTime;    
-		});
-		
+                vid.play();				
 		//setTimeout('alert(\'Surprise!\')', 10000);
             }
          });
@@ -17,7 +18,7 @@ $(document).ready(function(){
         $.ajax({
             success:function(data){
                 vid.pause();
-		
+		console.log(count);
             }
          });
     });
