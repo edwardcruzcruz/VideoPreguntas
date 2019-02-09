@@ -1,15 +1,45 @@
 $(document).ready(function(){
-  $('.test').on('click', function(e) {
-    //var resource = $(this).data("resource");
-
-     $.ajax({
-        //url: 'http://localhost/api/proyectos',//+ resource 
-        //dataType:'json',
-        //type: 'get',
-        success:function(data){
-            console.log("hola");
-        }
+    var vid = document.getElementById("video");
+    var count;
+    $('.playVid').on('click', function(e) {
+        $.ajax({
+            success:function(data){
+                vid.play();		
+		vid.addEventListener("timeupdate", function(){
+		    count=vid.currentTime;    
+		});
+		
+		//setTimeout('alert(\'Surprise!\')', 10000);
+            }
+         });
     });
-  });
+    $('.pauseVid').on('click', function(e) {
+        $.ajax({
+            success:function(data){
+                vid.pause();
+		
+            }
+         });
+    });
+    function failed(e) {
+        // video playback failed - show a message saying why
+        switch (e.target.error.code) {
+            case e.target.error.MEDIA_ERR_ABORTED:
+                alert('You aborted the video playback.');
+                break;
+            case e.target.error.MEDIA_ERR_NETWORK:
+                alert('A network error caused the video download to fail part-way.');
+                break;
+            case e.target.error.MEDIA_ERR_DECODE:
+                alert('The video playback was aborted due to a corruption problem or because the video used features your browser did not support.');
+                break;
+            case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+                alert('The video could not be loaded, either because the server or network failed or because the format is not supported.');
+                break;
+            default:
+                alert('An unknown error occurred.');
+            break;
+        }
+    }
 
 });

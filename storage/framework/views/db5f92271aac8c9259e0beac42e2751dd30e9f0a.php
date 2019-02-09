@@ -12,8 +12,6 @@
                 </div>
             </div>
         </div>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="<?php echo e(URL::asset('js/func.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
