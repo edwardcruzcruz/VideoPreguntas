@@ -1,13 +1,23 @@
+function pregunta(){
+  alert("La pregunta ees ..");
+}
+function responder(){
+  $('#video')[0].play();
+}
 $(document).ready(function(){
     var vid=document.getElementById("video");
     $("#video").bind('timeupdate', function() {
        var lastCheckedAt = $("#video").data('lastcheck') || 0;//para que aparezaca una vez cuando se le asigne y no se repita como es lo habitual
        $("#video").data('lastcheck', this.currentTime);
        if( (this.currentTime ) >=5 && lastCheckedAt < 5 ) {
-           console.log("5 seconds");
-	   //this.pause(); 
+           console.log("5 seconds"); 
+	   setTimeout(pregunta, 1000);//mostrar pregunta
+	   this.pause();
+	   setTimeout(responder, 10000);//10 segundos de delay
        }else if ((this.currentTime ) >=10 && lastCheckedAt < 10){
 	   console.log("10 seconds");
+	   this.pause();
+	   setTimeout(responder, 10000);
        } 
 	console.log(this.currentTime);
     });
