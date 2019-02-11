@@ -1,5 +1,35 @@
+function loadQuestion_answer() {
+    var title = $("<h1/>", {
+      html: "¿Como te llamas?"
+    });
+    var edward =$("<a/>",{
+      "class":"btn btn-small btn-info",
+      "id":"nombre1",
+      "name":"edward",
+      html: "Edward"
+    });
+    var andres =$("<a/>",{
+      "class":"btn btn-small btn-info",
+      "id":"nombre2",
+      "name":"andres",
+      html: "Andres"
+    });
+    var salto =$("<br/>");
+    var col = $( "<div/>",{
+	"align":"center",
+	'class':'col-12'
+    });
+    var row = $( "<div/>",{
+	'class':'row'
+    });
+    title.appendTo(col);
+    edward.appendTo(col);
+    salto.appendTo(col);
+    andres.appendTo(col);
+    col.appendTo(row);
+    row.appendTo( "#overlay" );
+}
 function pregunta(){
-  alert("La pregunta ees ..");
   $("#overlay").css("display","block");
 }
 function responder(){
@@ -8,6 +38,7 @@ function responder(){
   
 }
 $(document).ready(function(){
+    loadQuestion_answer();//cargando formulario 1
     var vid=document.getElementById("video"); 
     $("#overlay").css("display","none");//ocultar mientras no sea utilizado
 
@@ -32,7 +63,7 @@ $(document).ready(function(){
 	
 	console.log(this.currentTime);
     });
-
+    /*
     $('.playVid').on('click', function(e) {
         $.ajax({
             success:function(data){
@@ -47,6 +78,14 @@ $(document).ready(function(){
                 vid.pause();
             }
          });
+    });*/
+    $("#overlay").on("click", "a#nombre1", function(){//magia xD
+        alert("correcto");
+	responder();
+    });
+    $("#overlay").on("click", "a#nombre2", function(){//magia xD
+        alert("incorrecto! intenta de nuevo");
+        pregunta();
     });
     function failed(e) {
         // video playback failed - show a message saying why

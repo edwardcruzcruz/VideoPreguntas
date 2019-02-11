@@ -11,7 +11,7 @@
     <video autoplay="" id="video" width="1000" height="500" >
         <source src="<?php echo e(asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')); ?>" type="video/mp4" >
     </video>
-    <div id="overlay"><p>Formulario aqui</p></div>
+    <div class="container" id="overlay"></div>
 </div>
 <button class="playVid" type="button">Play Video</button>
 <button class="pauseVid" type="button">Pause Video</button><br> 
