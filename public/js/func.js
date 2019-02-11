@@ -34,14 +34,13 @@ function pregunta(){
 }
 function responder(){
   $("#overlay").css("display","none");
-  $('#video')[0].play();
-  
+  $('#video')[0].play();  
 }
 $(document).ready(function(){
     loadQuestion_answer();//cargando formulario 1
     var vid=document.getElementById("video"); 
     $("#overlay").css("display","none");//ocultar mientras no sea utilizado
-
+    var bandera=0;
     $("#video").bind('timeupdate', function() {
 
        var lastCheckedAt = $("#video").data('lastcheck') || 0;//para que aparezaca una vez cuando se le asigne y no se repita como es lo habitual
@@ -49,20 +48,36 @@ $(document).ready(function(){
        	
        $("#video").data('lastcheck', this.currentTime);
        if( (this.currentTime ) >=5 && lastCheckedAt < 5 ) {
-           console.log("5 seconds"); 
+           //console.log("5 seconds");
 	   setTimeout(pregunta, 1000);//mostrar pregunta
 	   this.pause();
-	   
-	   setTimeout(responder, 10000);//10 segundos de delay
+	   //setTimeout(pregunta, 10000);//10 segundos de delay
+	    if(bandera==0){
+		setTimeout(pregunta, 10000);//10 segundos delay
+		alert("Se acabo los 10 seugndos");
+	    }
 	   
        }else if ((this.currentTime ) >=10 && lastCheckedAt < 10){
 	   console.log("10 seconds");
+	   setTimeout(pregunta, 1000);//mostrar pregunta
 	   this.pause();
 	   setTimeout(responder, 10000);
        } 
 	
 	console.log(this.currentTime);
     });
+    
+    $("#overlay").on("click", "a#nombre1", function(){//magia xD
+	alert("correcto");
+	responder();
+	bandera=1;
+    });
+    $("#overlay").on("click", "a#nombre2", function(){//magia xD
+	alert("incorrecto! intenta de nuevo");
+	pregunta();
+	bandera=0;
+    });
+    
     /*
     $('.playVid').on('click', function(e) {
         $.ajax({
@@ -79,14 +94,7 @@ $(document).ready(function(){
             }
          });
     });*/
-    $("#overlay").on("click", "a#nombre1", function(){//magia xD
-        alert("correcto");
-	responder();
-    });
-    $("#overlay").on("click", "a#nombre2", function(){//magia xD
-        alert("incorrecto! intenta de nuevo");
-        pregunta();
-    });
+    
     function failed(e) {
         // video playback failed - show a message saying why
         switch (e.target.error.code) {

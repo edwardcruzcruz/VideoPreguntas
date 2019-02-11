@@ -13,8 +13,6 @@
     </video>
     <div class="container" id="overlay"></div>
 </div>
-<button class="playVid" type="button">Play Video</button>
-<button class="pauseVid" type="button">Pause Video</button><br> 
 
 <p>Video courtesy of <a href="https://www.youtube.com/watch?v=E3Q3dX0liTM" target="_blank">Cortometraje "La Magia de las Drogas"</a>.</p>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
