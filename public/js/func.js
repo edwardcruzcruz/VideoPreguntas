@@ -29,6 +29,9 @@ function loadQuestion_answer() {
     col.appendTo(row);
     row.appendTo( "#overlay" );
 }
+function tiempofuera(){
+ alert("Se acabo los 10 segundos, intenta de nuevo");
+}
 function pregunta(){
   $("#overlay").css("display","block");
 }
@@ -53,8 +56,8 @@ $(document).ready(function(){
 	   this.pause();
 	   //setTimeout(pregunta, 10000);//10 segundos de delay
 	    if(bandera==0){
-		setTimeout(pregunta, 10000);//10 segundos delay
-		alert("Se acabo los 10 seugndos");
+		//setTimeout(tiempofuera, 10000);
+		setTimeout(pregunta, 1000);//10 segundos delay
 	    }
 	   
        }else if ((this.currentTime ) >=10 && lastCheckedAt < 10){
