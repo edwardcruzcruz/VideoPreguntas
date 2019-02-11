@@ -1,11 +1,14 @@
 $(document).ready(function(){
     var vid=document.getElementById("video");
     $("#video").bind('timeupdate', function() {
-       /*if( (this.duration - this.currentTime ) <20000 ) {
-           console.log("less than 20 seconds left"); 
-       }else{
-	   console.log(this.currenTime);
-       } */
+       var lastCheckedAt = $("#video").data('lastcheck') || 0;//para que aparezaca una vez cuando se le asigne y no se repita como es lo habitual
+       $("#video").data('lastcheck', this.currentTime);
+       if( (this.currentTime ) >=5 && lastCheckedAt < 5 ) {
+           console.log("5 seconds");
+	   //this.pause(); 
+       }else if ((this.currentTime ) >=10 && lastCheckedAt < 10){
+	   console.log("10 seconds");
+       } 
 	console.log(this.currentTime);
     });
 
