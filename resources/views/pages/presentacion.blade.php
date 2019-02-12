@@ -6,7 +6,6 @@
         <a class="navbar-brand" href="{{ URL::to('/') }}">Atras</a>
     </div>
 </nav>
-
 <div class="container-fluid" id="contenedor">
     <div class="row" id="fila">
 	<div class="col-3 col-xs-3 col-sm-3 col-md-3">
@@ -19,6 +18,9 @@
                   </video>
 	     </div>
              <div class="container" id="overlay"></div>
+	     <div id="myProgress">
+     		  <div id="myBar"></div>
+	     </div>
          </div>
     </div>
 </div>

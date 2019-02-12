@@ -1,16 +1,16 @@
 var arr = [{video:"alfo",url:"",pregunta:"mas cosas(preguntas, tiempo, respuestas)",}];
-function loadQuestion_answer() {
+function loadQuestion_answer() {//preguntas y opciones
     var title = $("<h1/>", {
       html: "¿Como te llamas?"
     });
     var edward =$("<a/>",{
-      "class":"btn btn-small btn-info",
+      "class":"btn btn-link",
       "id":"nombre1",
       "name":"edward",
       html: "Edward"
     });
     var andres =$("<a/>",{
-      "class":"btn btn-small btn-info",
+      "class":"btn btn-link",
       "id":"nombre2",
       "name":"andres",
       html: "Andres"
@@ -30,18 +30,36 @@ function loadQuestion_answer() {
     col.appendTo(row);
     row.appendTo( "#overlay" );
 }
-function tiempofuera(){
+
+function tiempofuera(){//mensaje termino tiempo de espera
  alert("Se acabo los 10 segundos, intenta de nuevo");
 }
-function pregunta(){
+
+function pregunta(){//muestra de forma visible el div que contiene el formulario a cargar en tiempo de ejecucion
   $("#overlay").css("display","block");
 }
-function responder(){
+
+function responder(){//oculta e div del formulario y reanuda el video si se tiene un acierto
   $("#overlay").css("display","none");
   $('#video')[0].play();  
 }
+
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 1;
+  var id = setInterval(frame, 100);//50 es 5 segundos
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
+  }
+}
+
 $(document).ready(function(){
-    loadQuestion_answer();//cargando formulario 1
+    loadQuestion_answer();//cargando formulario 1(esto puede cargarse por el json o al momento de requerirlo)
     var vid=document.getElementById("video"); 
     $("#overlay").css("display","none");//ocultar mientras no sea utilizado
     var bandera=0;
@@ -57,12 +75,13 @@ $(document).ready(function(){
 	   this.pause();
 	   //setTimeout(pregunta, 10000);//10 segundos de delay
 	    if(bandera==0){
-		//setTimeout(tiempofuera, 10000);
+		//setTimeout(tiempofuera, 10000);//poner un id y desues eliminarlo si no se ha concluido el tiempo++(modif)
 		setTimeout(pregunta, 1000);//10 segundos delay
+		move();
 	    }
 	   
        }else if ((this.currentTime ) >=10 && lastCheckedAt < 10){
-	   console.log("10 seconds");
+	   //console.log("10 seconds");
 	   setTimeout(pregunta, 1000);//mostrar pregunta
 	   this.pause();
 	   setTimeout(responder, 10000);

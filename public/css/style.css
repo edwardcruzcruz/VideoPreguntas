@@ -26,6 +26,19 @@ video#video{
     width:500px;
     height:180px;
 }
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+  
+  top:90%;
+  left:0;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #C8C0BF;
+}
 html, body {
                 background-color: #fff;
                 color: #636b6f;
