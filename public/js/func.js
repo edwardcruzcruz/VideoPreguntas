@@ -1,3 +1,4 @@
+var arr = [{video:"alfo",url:"",pregunta:"mas cosas(preguntas, tiempo, respuestas)",}];
 function loadQuestion_answer() {
     var title = $("<h1/>", {
       html: "¿Como te llamas?"

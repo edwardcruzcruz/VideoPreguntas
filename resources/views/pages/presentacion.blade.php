@@ -7,12 +7,20 @@
     </div>
 </nav>
 
-<h1 align="center">Video 1</h1>
-<div class="Video">
-    <video autoplay="" id="video" >
-        <source src="{{asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')}}" type="video/mp4" >
-    </video>
-    <div class="container" id="overlay"></div>
+<div class="container-fluid" id="contenedor">
+    <div class="row" id="fila">
+	<div class="col-3 col-xs-3 col-sm-3 col-md-3">
+             <h1>videos mas + . +</h1>
+         </div>
+	<div class="col-9 col-xs-9 col-sm-9 col-md-9" id="columna2">
+             <div class="Video">
+                  <video autoplay="" id="video" >
+                       <source src="{{asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')}}" type="video/mp4" >
+                  </video>
+	     </div>
+             <div class="container" id="overlay"></div>
+         </div>
+    </div>
 </div>
 {{--
 <button class="playVid" type="button">Play Video</button>

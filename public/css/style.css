@@ -1,23 +1,79 @@
-.video{
+div.video{
     position:relative;
-    width:"100%";
-    height="550";
-}
-#video{
-    width:"100%";
-    height="100%";
-}
-.overlay{
-    position:absolute;
-    top:0;
-    left:0;
     width:100%;
-    height:370px;
-    background-color:#000;
+    height:100%;
     z-index:-1;
 }
-.overlay *{
-    padding:0.4em;
-    margin:0;
+div.video video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
+video#video{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+#overlay{
+    border-radius: 25px;
+    background-color:url("Imagenes/contact-form-background.jpg");
+    background-color: #cccccc;
+    position:absolute;
+    top:35%;
+    left:28%;
+    width:500px;
+    height:180px;
+}
+html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
 

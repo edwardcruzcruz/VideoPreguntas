@@ -6,12 +6,20 @@
     </div>
 </nav>
 
-<h1 align="center">Video 1</h1>
-<div class="Video">
-    <video autoplay="" id="video" >
-        <source src="<?php echo e(asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')); ?>" type="video/mp4" >
-    </video>
-    <div class="container" id="overlay"></div>
+<div class="container-fluid" id="contenedor">
+    <div class="row" id="fila">
+	<div class="col-3 col-xs-3 col-sm-3 col-md-3">
+             <h1>videos mas + . +</h1>
+         </div>
+	<div class="col-9 col-xs-9 col-sm-9 col-md-9" id="columna2">
+             <div class="Video">
+                  <video autoplay="" id="video" >
+                       <source src="<?php echo e(asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')); ?>" type="video/mp4" >
+                  </video>
+	     </div>
+             <div class="container" id="overlay"></div>
+         </div>
+    </div>
 </div>
 
 <p>Video courtesy of <a href="https://www.youtube.com/watch?v=E3Q3dX0liTM" target="_blank">Cortometraje "La Magia de las Drogas"</a>.</p>
