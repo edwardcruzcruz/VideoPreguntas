@@ -60,7 +60,8 @@ function move() {
 
 $(document).ready(function(){
     loadQuestion_answer();//cargando formulario 1(esto puede cargarse por el json o al momento de requerirlo)
-    var vid=document.getElementById("video"); 
+    var vid=document.getElementById("video");
+    //$("#source").attr("src","none");
     $("#overlay").css("display","none");//ocultar mientras no sea utilizado
     var bandera=0;
     $("#video").bind('timeupdate', function() {
@@ -74,17 +75,22 @@ $(document).ready(function(){
 	   setTimeout(pregunta, 1000);//mostrar pregunta
 	   this.pause();
 	   //setTimeout(pregunta, 10000);//10 segundos de delay
-	    if(bandera==0){
+	   if(bandera==0){
 		//setTimeout(tiempofuera, 10000);//poner un id y desues eliminarlo si no se ha concluido el tiempo++(modif)
 		setTimeout(pregunta, 1000);//10 segundos delay
 		move();
-	    }
+	   }
 	   
        }else if ((this.currentTime ) >=10 && lastCheckedAt < 10){
 	   //console.log("10 seconds");
 	   setTimeout(pregunta, 1000);//mostrar pregunta
 	   this.pause();
-	   setTimeout(responder, 10000);
+	   //setTimeout(pregunta, 10000);//10 segundos de delay
+	   if(bandera==0){
+		//setTimeout(tiempofuera, 10000);//poner un id y desues eliminarlo si no se ha concluido el tiempo++(modif)
+		setTimeout(pregunta, 1000);//10 segundos delay
+		move();
+	   }
        } 
 	
 	console.log(this.currentTime);

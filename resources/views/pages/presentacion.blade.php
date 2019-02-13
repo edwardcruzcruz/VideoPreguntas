@@ -14,7 +14,7 @@
 	<div class="col-9 col-xs-9 col-sm-9 col-md-9" id="columna2">
              <div class="Video">
                   <video autoplay="" id="video" >
-                       <source src="{{asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')}}" type="video/mp4" >
+                       <source id="source" src="{{asset('Video/Cortometraje_La_Magia_de_las_Drogas.mkv')}}" type="video/mp4" >
                   </video>
 	     </div>
              <div class="container" id="overlay"></div>
